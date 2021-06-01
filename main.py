@@ -6,14 +6,15 @@ import os
 def print_hi(name):
     # print('# Username:', len(sys.argv))
 
-    newUser = yes_or_no('New sudo User ?')
-    if newUser == True:
+    update_and_upgrade()
+
+    if yes_or_no('New sudo user ?') == True:
         username = input("Username: ")
         create_new_user(username)
 
-    autoUpdate = yes_or_no('Auto Update ?')
-    if autoUpdate == True:
-        update_and_upgrade()
+    if yes_or_no('Auto update ?') == True:
+        auto_update()
+
 
 
 # os.system('echo ' + username)
@@ -30,8 +31,14 @@ def yes_or_no(question):
 def update_and_upgrade():
     os.system('sudo apt update && sudo apt upgrade')
 
+def auto_update():
+    os.system('sudo apt-get install unattended-upgrades')
+    os.system('sudo dpky-reconfigure --priority=low unattended-upgrades')
+
 def create_new_user(username):
-    os.system("sudo adduser " + username)
+    os.system('sudo adduser ' + username)
+    os.system('sudo usermod -aG sudo ' + username)
+    os.system('sudo -l -U ' + username)
 
 if __name__ == '__main__':
     print_hi('PyCharm')
