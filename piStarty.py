@@ -1,31 +1,28 @@
 import sys
-import os
 
 import installations
-import system_operations
+import systemOperations
 
 
 def print_hi():
-    # print('# Username:', len(sys.argv))
-
-    system_operations.update_and_upgrade()
+    systemOperations.update_and_upgrade()
 
     if yes_or_no('Vim ?'):
         installations.vim_install()
 
+    if yes_or_no('Change hostname ?'):
+        new_host_name = input('New hostname: ')
+        systemOperations.change_host_name(new_host_name)
+
     if yes_or_no('New sudo user ?'):
-        username = input("Username: ")
-        system_operations.create_new_user(username)
+        username = input('Username: ')
+        systemOperations.create_new_user(username)
 
     if yes_or_no('Enable ssh ?'):
-        system_operations.enable_ssh()
+        systemOperations.enable_ssh()
 
     if yes_or_no('Auto update ?'):
         installations.auto_update()
-
-
-# os.system('echo ' + username)
-# print(username)
 
 
 def yes_or_no(question):
@@ -37,10 +34,12 @@ def yes_or_no(question):
             return False
 
 
-# system operations
-
-
 if __name__ == '__main__':
+    arguments = str(sys.argv).lower()
+
+    print(arguments)
+
+    # default
     print_hi()
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

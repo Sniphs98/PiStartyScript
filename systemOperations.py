@@ -1,4 +1,12 @@
 import os
+import socket
+
+def change_host_name(hostname):
+    old_hostname = socket.gethostname()
+    # os.system('sudo hostnamectl set-hostname' + hostname)
+    # os.system('sudo hostnamectl')
+    print(old_hostname + ' -> ' + hostname)
+    #TODO find old host name and change it to the new one
 
 
 def create_new_user(username):
