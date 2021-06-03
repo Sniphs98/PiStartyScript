@@ -1,5 +1,6 @@
 import os
 import socket
+import subprocess
 
 def change_host_name(hostname):
     old_hostname = socket.gethostname()
@@ -24,4 +25,5 @@ def enable_ssh():
 
 def update_and_upgrade():
     os.system('sudo apt update && sudo apt upgrade')
+
 
