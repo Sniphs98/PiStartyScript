@@ -16,4 +16,5 @@ def vim_install():
 
 
 def install(packed_name):
-    subprocess.run(['sudo', 'apt', 'install', 'y', packed_name], check=True)
+    package_name = "<package_name>"
+    subprocess.run(["sudo", "apt", "install", "-y", package_name], check=True)
