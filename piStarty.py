@@ -1,4 +1,5 @@
 import sys
+import os
 
 import installations
 import systemOperations
@@ -6,6 +7,10 @@ import systemOperations
 
 def print_hi():
     systemOperations.update_and_upgrade()
+
+    if yes_or_no('test'):
+        test()
+
 
     if yes_or_no('Vim ?'):
         installations.vim_install()
@@ -32,6 +37,10 @@ def yes_or_no(question):
         return True
     if reply[0] == 'n':
         return False
+
+
+def test():
+    os.system('echo test')
 
 
 if __name__ == '__main__':
