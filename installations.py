@@ -11,10 +11,6 @@ def auto_update():
     os.system('sudo dpky-reconfigure --priority=low unattended-upgrades')
 
 
-def vim_install():
-    install('vim')
-
-
-def install(packed_name):
-    package_name = "<package_name>"
-    subprocess.run(["sudo", "apt", "install", "-y", package_name], check=True)
+#def install(packed_name):
+    #package_name = "<package_name>"
+    #subprocess.run(["sudo", "apt", "install", "-y", package_name], check=True)

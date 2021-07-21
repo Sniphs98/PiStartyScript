@@ -4,15 +4,14 @@ import os
 import installations
 import systemOperations
 
-#path /mnt/c/Users/lukas/PycharmProjects/PiStartyScript
 
 def print_hi():
     # systemOperations.update_and_upgrade()
 
-    if test_yes_or_no('test question'):
+    if yes_or_no('test question'):
         print('sugeces')
 
-    if test_yes_or_no('Vim ?'):
+    if yes_or_no('Vim ?'):
         print('test')
         installations.vim_install()
 
@@ -29,15 +28,6 @@ def print_hi():
 
     if yes_or_no('Auto update ?'):
         installations.auto_update()
-
-
-def test_yes_or_no(question):
-    while "the answer is invalid":
-        reply = str(raw_input(question + ' (y/n): ')).lower().strip()
-        if reply[:1] == 'y':
-            return True
-        if reply[:1] == 'n':
-            return False
 
 
 def yes_or_no(question):
