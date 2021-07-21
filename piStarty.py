@@ -4,15 +4,16 @@ import os
 import installations
 import systemOperations
 
+#path /mnt/c/Users/lukas/PycharmProjects/PiStartyScript
 
 def print_hi():
-    systemOperations.update_and_upgrade()
+    # systemOperations.update_and_upgrade()
 
-    if yes_or_no('test'):
-        test()
+    if test_yes_or_no('test question'):
+        print('sugeces')
 
-
-    if yes_or_no('Vim ?'):
+    if test_yes_or_no('Vim ?'):
+        print('test')
         installations.vim_install()
 
     if yes_or_no('Change hostname ?'):
@@ -30,17 +31,22 @@ def print_hi():
         installations.auto_update()
 
 
+def test_yes_or_no(question):
+    while "the answer is invalid":
+        reply = str(raw_input(question + ' (y/n): ')).lower().strip()
+        if reply[:1] == 'y':
+            return True
+        if reply[:1] == 'n':
+            return False
+
+
 def yes_or_no(question):
-
-    reply = str(input(question + ' (y/n): ')).lower().strip()
-    if reply[0] == 'y':
-        return True
-    if reply[0] == 'n':
-        return False
-
-
-def test():
-    os.system('echo test')
+    while "the answer is invalid":
+        reply = str(raw_input(question + ' (y/n): ')).lower().strip()
+        if reply[:1] == 'y':
+            return True
+        if reply[:1] == 'n':
+            return False
 
 
 if __name__ == '__main__':
@@ -52,3 +58,4 @@ if __name__ == '__main__':
     print_hi()
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
+# /mnt/c/Users/lukas/PycharmProjects/PiStartyScript
