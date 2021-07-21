@@ -8,11 +8,7 @@ import systemOperations
 def print_hi():
     # systemOperations.update_and_upgrade()
 
-    if yes_or_no('test question'):
-        print('sugeces')
-
     if yes_or_no('Vim ?'):
-        print('test')
         installations.vim_install()
 
     if yes_or_no('Change hostname ?'):
@@ -25,6 +21,8 @@ def print_hi():
 
     if yes_or_no('Enable ssh ?'):
         systemOperations.enable_ssh()
+    else:
+        systemOperations.disable_ssh()
 
     if yes_or_no('Auto update ?'):
         installations.auto_update()

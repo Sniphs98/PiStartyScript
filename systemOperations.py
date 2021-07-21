@@ -1,6 +1,8 @@
 import os
 import socket
 import subprocess
+import platform
+
 
 def change_host_name(hostname):
     old_hostname = socket.gethostname()
@@ -21,6 +23,10 @@ def enable_ssh():
     os.system('sudo systemctl status ssh')
     os.system('sudo ufw allow ssh')
     os.system('sudo ip a')
+
+def disable_ssh():
+    print(platform.release())
+    platform.release()
 
 
 def update_and_upgrade():

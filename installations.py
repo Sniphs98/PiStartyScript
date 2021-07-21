@@ -3,7 +3,7 @@ import subprocess
 
 
 def vim_install():
-    os.system('sudo apt install vim')
+    os.system('sudo apt install vim -y')
 
 
 def auto_update():
