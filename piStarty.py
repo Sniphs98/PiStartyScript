@@ -6,17 +6,18 @@ import systemOperations
 
 
 def print_hi():
-    # systemOperations.update_and_upgrade()
+    systemOperations.update_and_upgrade()
 
     if yes_or_no('Vim ?'):
         installations.vim_install()
 
+
     if yes_or_no('Change hostname ?'):
-        new_host_name = input('New hostname: ')
+        new_host_name = raw_input('New hostname: ')
         systemOperations.change_host_name(new_host_name)
 
     if yes_or_no('New sudo user ?'):
-        username = input('Username: ')
+        username = raw_input('Username: ')
         systemOperations.create_new_user(username)
 
     if yes_or_no('Enable ssh ?'):
@@ -26,6 +27,9 @@ def print_hi():
 
     if yes_or_no('Auto update ?'):
         installations.auto_update()
+
+    if yes_or_no('Reboot ?'):
+        systemOperations.reboot()
 
 
 def yes_or_no(question):

@@ -7,7 +7,7 @@ def vim_install():
 
 
 def auto_update():
-    os.system('sudo apt-get install unattended-upgrades')
+    os.system('sudo apt-get install unattended-upgrades -y')
     os.system('sudo dpky-reconfigure --priority=low unattended-upgrades')
 
 
